@@ -1,0 +1,53 @@
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<title>List Of Hotels In Database</title>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.13.1/datatables.min.css"/>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div>
+	
+	<h1>Hotels List</h1>
+	<hr/>
+	<table class="table table-bordered table-striped" id="Hotel-list">
+	
+		<thead >
+					<tr>
+						<th scope="col">City-Name</th>
+						<th scope="col">Hotel-Name</th>
+						<th scope="col">contact-Number</th>
+						<th scope="col">Email Id</th>
+						<th scope="col">Actions</th>
+						
+					</tr>
+		</thead>
+		<tbody>
+		
+			<tr th:each="hotel:${hotels}">
+					<td th:text="${hotel.cityName}" ></td>
+					<td th:text="${hotel.hotelName}"></td>
+					<td th:text="${hotel.contactNumber}"></td>
+					<td th:text="${hotel.email}"></td>
+					<td>
+						<a th:href="@{/showUpdateForm(hotelId=${hotel.id})}" class="btn btn-info ">Update</a>
+						<a th:href="@{/deleteEmployee(hotelId=${hotel.id})}" class="btn btn-danger ">Delete	</a>
+					</td>
+			</tr>
+		
+		</tbody>
+	
+	</table>
+	
+	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.13.1/datatables.min.js"></script>
+<script>
+		$( document ).ready(function() {
+    		$("#Hotel-list").DataTable();
+		});
+</script>
+</body>
+</html>
