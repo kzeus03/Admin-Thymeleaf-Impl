@@ -16,6 +16,7 @@
 	
 		<thead >
 					<tr>
+						<th scope="col">Id</th>
 						<th scope="col">City-Name</th>
 						<th scope="col">Hotel-Name</th>
 						<th scope="col">contact-Number</th>
@@ -27,20 +28,23 @@
 		<tbody>
 		
 			<tr th:each="hotel:${hotels}">
+					<td th:text="${hotel.id}"></td>
 					<td th:text="${hotel.cityName}" ></td>
 					<td th:text="${hotel.hotelName}"></td>
 					<td th:text="${hotel.contactNumber}"></td>
 					<td th:text="${hotel.email}"></td>
 					<td>
+						<a th:href="@{/showHotel(hotelId=${hotel.id})}" class="btn btn-info ">info	</a>
 						<a th:href="@{/showUpdateForm(hotelId=${hotel.id})}" class="btn btn-info ">Update</a>
-						<a th:href="@{/deleteEmployee(hotelId=${hotel.id})}" class="btn btn-danger ">Delete	</a>
+						<a th:href="@{/deleteHotel(hotelId=${hotel.id})}" class="btn btn-danger ">Delete</a>
+						
 					</td>
 			</tr>
 		
 		</tbody>
 	
 	</table>
-	
+	<a th:href="@{/}" class="btn btn-primary mb-2">Home</a>
 	</div>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.13.1/datatables.min.js"></script>

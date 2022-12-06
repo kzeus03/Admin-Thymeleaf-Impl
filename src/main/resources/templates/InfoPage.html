@@ -7,10 +7,16 @@
 
 </head>
 <body>
-<h2>Welcome to dineout</h2>
+<h2 th:each="hotel:${hotels}" th:text="${hotel.hotelName}"></h2>
 <hr/>
- <a th:href="@{/list}" class="btn btn-primary mb-2">List</a>
-<a th:href="@{/addHotel}" class="btn btn-primary mb-2">Add Hotel</a>
+
+<h4 >City Name :</h4>
+<h4>Email Id :</h4>
+<h4>Contact Number :</h4>
+
+<a th:href="@{/list}" class="btn btn-primary mb-2">List</a>
+<a th:href="@{/}" class="btn btn-primary mb-2">Home</a>
+
 
 
 </body>

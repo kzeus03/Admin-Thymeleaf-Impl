@@ -60,12 +60,20 @@ public class AdminController {
 		return view;
 	}
 	
-	@GetMapping("/deleteEmployee")
+	@GetMapping("/deleteHotel")
 	public ModelAndView Delete(@RequestParam int hotelId) {
 		ModelAndView view =new ModelAndView("DeleteInfo");		
 		adminService.deleteById(hotelId);
 		return view;
 	}	
+	
+	@GetMapping("showHotel")
+	public ModelAndView HotelDetails(@RequestParam int hotelId) {
+		ModelAndView view = new ModelAndView("InfoPage");
+		Hotels hotels=adminService.findById(hotelId);
+		view.addObject("hotels",hotels);
+		return view;
+	}
 
 	
 }
